@@ -1,1 +1,32 @@
-<h1>Proof of Humanity</h1>
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Proof of Humanity</title>
+  <style>
+   html, body { margin: 0;  padding: 0; }
+   #content { margin-left: 2vw; margin-top: 2vh; }
+  </style>  
+ </head>
+ <body>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+    <div id="content"></div>
+
+    <script>
+    $(function() {
+        $.get("https://docs.google.com/document/d/e/2PACX-1vRQoWfJW-V4dwWMkq9_PmYaEEt3iqeP5AJDBgrqOzkzYYxowNCrKPcyf4p2EooKvej0L1I9FR3Mc-li/pub?embedded=true", function(html) {
+            var content = $("#content");
+
+            content.html(html);
+
+            setTimeout(function() {
+                content.find('a[href^="http://"]').attr("target", "_blank");
+                content.find('a[href^="https://"]').attr("target", "_blank");
+            }, 1000);
+        });
+    });
+    </script>
+
+ </body>
+</html>
